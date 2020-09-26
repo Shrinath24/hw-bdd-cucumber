@@ -34,6 +34,12 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   Then I should see these movies: The Terminator, When Harry Met Sally, Amelie, Raiders of the Lost Ark, The Incredibles 
   # enter step(s) to ensure that other movies are not visible
   And I should not see these movies: Chicken Run, 2001: A Space Odyssey, Chocolat, The Help, Aladdin
+  
+  When I check the following ratings: R, PG
+  And I press the "Refresh" button
+  Then I should see these movies: The Terminator, When Harry Met Sally, Amelie, Raiders of the Lost Ark, The Incredibles 
+  And I should not see these movies: Chicken Run, 2001: A Space Odyssey, Chocolat, The Help, Aladdin
+  
 Scenario: all ratings selected
   # see assignment
   Given I am on the RottenPotatoes homepage
