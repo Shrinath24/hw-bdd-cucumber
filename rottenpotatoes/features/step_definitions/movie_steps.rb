@@ -44,17 +44,6 @@ When /I press the "(.*)" button/ do |button_refresh|
   click_button button_refresh
 end
 
-When /I check all ratings/ do
-  ratings_list = rating_list.split(', ')
-  ratings_list.each do |rating|
-    if uncheck.nil? 
-       check("ratings[#{rating}]") #checkbox name
-    else
-       uncheck("ratings[#{rating}]")
-    end
-  end
-end
-
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   rows = page.all('table tr').count
